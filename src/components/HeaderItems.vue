@@ -21,6 +21,7 @@
 							</div> -->
 						</b-col>
 						<b-col cols="1" class="user">
+							<a @click="signOut">Sign out</a>
 							<!-- <template>
 								<b-skeleton type="avatar" v-show="avatarSke"></b-skeleton>
 								<div @mouseover="onOver('avatarD')" @mouseleave="onLeave('avatarD')">
@@ -45,6 +46,7 @@
 	// import Avatar from 'vue-avatar'
 	// import { mapGetters } from 'vuex'
 	// import store from '../store/store'
+	import { Auth } from 'aws-amplify';
 
 	export default {
 		name:"HeaderItems",
@@ -100,20 +102,28 @@
 		// mounted(){
 		// 	setTimeout(()=>{this.setLoadingState(false,true)}, 1000)
 		// },
-		// methods: {
-		// 	onOver(id){this.$refs[id].visible = true},
-		// 	onLeave(id){this.$refs[id].visible = false},
-		// 	location(item){
-		// 		this.selected = item;
-		// 		store.commit('locationChanged', this.selected);
-		// 	},
-		// 	openMenu(){this.$emit('open-menu')},
-		// 	setLoadingState (value1,value2) {
-		// 		this.avatarSke = value1;
-		// 		this.avatarShow = value2;
-		// 	},
-		// 	logout(){signOut(auth).then(() => {this.$router.replace('login')})}
-		// }
+		methods: {
+			// onOver(id){this.$refs[id].visible = true},
+			// onLeave(id){this.$refs[id].visible = false},
+			// location(item){
+			// 	this.selected = item;
+			// 	store.commit('locationChanged', this.selected);
+			// },
+			// openMenu(){this.$emit('open-menu')},
+			// setLoadingState (value1,value2) {
+			// 	this.avatarSke = value1;
+			// 	this.avatarShow = value2;
+			// },
+			// logout(){signOut(auth).then(() => {this.$router.replace('login')})}
+			async signOut(){
+				try{
+					await Auth.signOut();
+					this.$router.replace('login')
+				}catch(error){
+					console.log('error signing out: ', error);
+				}
+			}
+		}
 	}
 </script>
 

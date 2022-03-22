@@ -10,6 +10,11 @@
       "StackName": "amplify-gotron-dev-73638",
       "StackId": "arn:aws:cloudformation:ap-southeast-1:540777909301:stack/amplify-gotron-dev-73638/29765330-a68e-11ec-a856-02a2cc534e0a",
       "AmplifyAppId": "dvpxyiys79flq"
+    },
+    "categories": {
+      "auth": {
+        "gotron0fcdd3df": {}
+      }
     }
   }
 }

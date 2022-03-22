@@ -18,7 +18,7 @@
                 </div>
                 <b-form @submit.prevent="onSubmit" v-if="show">
                   <b-form-group class="mt-4" id="input-group-1" label-for="input-1">
-                    <b-form-input id="input-1" v-model="form.email" type="email" placeholder="Email" required></b-form-input>
+                    <b-form-input id="input-1" v-model="form.username" type="text" placeholder="Username" required></b-form-input>
                   </b-form-group>
                   <b-form-group class="mt-4" id="input-group-2" label-for="input-2">
                     <b-form-input id="input-2" v-model="form.password" type="password" placeholder="password" required></b-form-input>
@@ -47,13 +47,14 @@
 <script>
   // import {auth, signInWithEmailAndPassword, perf, trace} from '../fire';
   import Vue from 'vue';
+  import { Auth } from 'aws-amplify';
 
   export default {
     name: 'Login',
     data(){
       return{
         form:{
-          email:'',
+          username:'',
           password:''
         },
         btn:{
@@ -68,23 +69,21 @@
     },
     methods: {
       async onSubmit(event) {
-        // event.preventDefault();
-        // const t = trace(perf,"loginClicked");
-        // t.start();
-        // this.btn.text = '';
-        // this.msg.err = '';
-        // Vue.set(this.btnClicked,'b',1);
-        // signInWithEmailAndPassword(auth, this.form.email, this.form.password)
-        // .then(() => {
-        //   this.btn.text = this.$i18n.t('login.login');
-        //   Vue.set(this.btnClicked,'b',0);
-        //   this.$router.replace({name: "Dashboard"});
-        // }).catch((error) => {
-        //   this.msg.err = error.code.replace('auth/','').split('-').join(' ');
-        //   this.btn.text = this.$i18n.t('login.login');
-        //   Vue.set(this.btnClicked,'b',0);
-        // });
-        // t.stop();
+        event.preventDefault();
+        this.btn.text = '';
+        this.msg.err = '';
+        Vue.set(this.btnClicked,'b',1);
+        try {
+          const user = await Auth.signIn(this.form.username, this.form.password);
+          this.btn.text = 'Login';//this.$i18n.t('login.login');
+          Vue.set(this.btnClicked,'b',0);
+          this.$router.replace({name: "Dashboard"});
+        } catch (error) {
+          this.btn.text = 'Login';//this.$i18n.t('login.login');
+          Vue.set(this.btnClicked,'b',0);
+          this.msg.err = error;
+          // console.log('error signing in', error);
+        }
       }
     }
   }
