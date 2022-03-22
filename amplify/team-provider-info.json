@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-gotron-dev-73638-authRole",
+      "UnauthRoleArn": "arn:aws:iam::540777909301:role/amplify-gotron-dev-73638-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::540777909301:role/amplify-gotron-dev-73638-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-gotron-dev-73638-deployment",
+      "UnauthRoleName": "amplify-gotron-dev-73638-unauthRole",
+      "StackName": "amplify-gotron-dev-73638",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:540777909301:stack/amplify-gotron-dev-73638/29765330-a68e-11ec-a856-02a2cc534e0a",
+      "AmplifyAppId": "dvpxyiys79flq"
+    }
+  }
+}
