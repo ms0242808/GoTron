@@ -1,14 +1,30 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/explore">Explore</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/faq">FAQ</router-link> |
-      <router-link to="/contact">Concat US</router-link> |
-      <router-link to="/login">Create Now</router-link>
-    </div>
+    <b-navbar id="nav" toggleable="lg" type="dark" variant="dark" sticky>
+      <b-navbar variant="faded" type="light">
+        <b-navbar-brand href="/">GoTron</b-navbar-brand>
+      </b-navbar>
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav class="ms-auto al-c">
+          <b-nav-item href="/explore">Explore</b-nav-item>
+          <b-nav-item href="/about">About</b-nav-item>
+          <b-nav-item to="/faq">FAQ</b-nav-item>
+          <b-nav-item to="/contact">Concat US</b-nav-item>
+          <b-nav-item to="/login"><b-button size="sm" variant="outline-light">Create Now</b-button></b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
     <router-view/>
+    <div class="justify-content-md-center mb-2">
+      <footer class="sticky-footer">
+        <div class="mx-auto">
+          <div class="copyright text-center text-dark">
+            <small>Copyright &copy; GOTRON 2022</small>
+          </div>
+        </div>
+      </footer>
+    </div>
   </div>
 </template>
 
@@ -18,11 +34,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #eaeaea;
+  /* color: #eaeaea; */
 }
 
 #nav {
-  padding: 30px;
+  padding: 5px 30px;
 }
 
 #nav a {

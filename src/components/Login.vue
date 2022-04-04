@@ -31,15 +31,6 @@
           </b-card>
         </b-col>
       </b-row>
-      <div class="justify-content-md-center">
-        <footer class="sticky-footer">
-          <div class="mx-auto">
-            <div class="copyright text-center text-light">
-              <small>Copyright &copy; GOTRON 2022</small>
-            </div>
-          </div>
-        </footer>
-      </div>
     </b-container>
   </div>
 </template>
