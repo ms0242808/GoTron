@@ -362,3 +362,7 @@ a.text-dark:hover, a.text-dark:focus {
 .mb-2{
   margin-bottom: 2rem;
 }
+
+.mt-2{
+  margin-top: 2rem;
+}
