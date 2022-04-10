@@ -351,6 +351,10 @@ a.text-dark:hover, a.text-dark:focus {
   align-items: center;
 }
 
+.al-s{
+  align-self: center;
+}
+
 .m-a{
   margin: auto;
 }
@@ -365,4 +369,20 @@ a.text-dark:hover, a.text-dark:focus {
 
 .mt-2{
   margin-top: 2rem;
+}
+
+.ml-2{
+  margin-left: 2rem;
+}
+
+.hbar{
+  min-height: 100px;
+}
+
+.row{
+  --bs-gutter-x: 0 !important;
+}
+
+.t-l{
+  text-align: left;
 }

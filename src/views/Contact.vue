@@ -1,17 +1,17 @@
 <template>
   <div id="contact">
-    <b-row>
-      <b-col cols="3">
-        <h3>Contact us</h3>
+    <b-row class="hbar">
+      <b-col cols="3" class="al-s">
+        <h3><b>Contact us</b></h3>
       </b-col>
-      <b-col cols="9">
+      <b-col cols="9" class="al-s">
         email, socia medial
       </b-col>
     </b-row>
-    <b-row class="container">
-      <b-col>
+    <b-row id="form">
+      <b-col lg="6" sm="12" class="input-f">
         <b-row>
-          <b-col cols="6" class="mt-2">
+          <b-col lg="6" sm="12" class="mt-2">
             <b-form-input
               id="input-2"
               v-model="first"
@@ -19,7 +19,7 @@
               required
             ></b-form-input>
           </b-col>
-          <b-col cols="6" class="mt-2">
+          <b-col lg="6" sm="12" class="mt-2">
             <b-form-input
               id="input-2"
               v-model="last"
@@ -48,7 +48,7 @@
         </b-row>
         <b-button class="mt-2" variant="outline-success">Send</b-button>
       </b-col>
-      <b-col>
+      <b-col lg="6" sm="12">
         <h1>Map</h1>
       </b-col>
     </b-row>
@@ -63,8 +63,23 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #contact{
-  min-height: 700px;
+  min-height: 600px;
+}
+
+#form{
+  background: url('../assets/img/contact/bg.svg') no-repeat scroll 0px 100% / cover transparent;
+  min-height: 600px;
+}
+
+.form-control{
+  background-color:unset;
+  border: 1px solid #2d2d2d;
+  border-radius: 10px;
+}
+
+.input-f{
+  padding: 50px 50px;
 }
 </style>
