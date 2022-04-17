@@ -398,3 +398,8 @@ a.text-dark:hover, a.text-dark:focus {
 .t-l{
   text-align: left;
 }
+
+.size-50{
+  width: 50px;
+  height: 50px;
+}

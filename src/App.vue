@@ -2,13 +2,13 @@
   <div id="app">
     <b-navbar id="nav" toggleable="lg" type="dark" variant="dark" sticky>
       <b-navbar variant="faded" type="light">
-        <b-navbar-brand href="/">GoTron</b-navbar-brand>
+        <b-navbar-brand to="/">GoTron</b-navbar-brand>
       </b-navbar>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ms-auto al-c">
-          <b-nav-item href="/explore">Explore</b-nav-item>
-          <b-nav-item href="/about">About</b-nav-item>
+          <b-nav-item to="/explore">Explore</b-nav-item>
+          <b-nav-item to="/about">About</b-nav-item>
           <b-nav-item to="/faq">FAQ</b-nav-item>
           <b-nav-item to="/contact">Concat US</b-nav-item>
           <b-nav-item to="/login"><b-button size="sm" variant="outline-light">Create Now</b-button></b-nav-item>
