@@ -7,7 +7,7 @@
           <h3><b>Create Together</b></h3>
           <b-button size="sm" variant="outline-dark" to="/login">Create Now</b-button>
         </b-col>
-        <b-col lg="6" sm="12" class="al-s">images</b-col>
+        <b-col lg="6" sm="12" class="al-s" id="intro-right"></b-col>
       </b-row>
     </div>
     <div id="steps" class="m-a">
@@ -197,6 +197,11 @@ export default {
 
 <style>
 #intro{
+  min-height: 600px;
+}
+
+#intro-right{
+  background: url('../assets/img/landing/index-right.png')  no-repeat scroll -90px 100% / cover transparent;
   min-height: 600px;
 }
 

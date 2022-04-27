@@ -8,18 +8,14 @@
             <h5><b>Inspire & Be Inpsired</b></h5>
             <p>Collbration brings synergy, possibility ignites creativity</p>
           </b-col>
-          <b-col lg="6" sm="12" class="al-s">
-            <h1>image (logo/music,etc)</h1>
-          </b-col>
+          <b-col lg="6" sm="12" class="al-s" id="top-right"></b-col>
         </b-row>
       </b-container>
     </div>
     <div id="mid">
       <b-container>
         <b-row class="row400">
-          <b-col lg="6" sm="12" class="al-s">
-            <h1>image (logo/music,etc)</h1>
-          </b-col>
+          <b-col lg="6" sm="12" class="al-s" id="mid-left"></b-col>
           <b-col lg="6" sm="12" class="al-s">
             <h3><b>Revolutionize the musical industry</b></h3>
             <p>Minimizing the barrier to music creation to create a new music development collbration ecosystem with everyone is being heard.</p>
@@ -60,6 +56,12 @@ export default {
     text-align: left;
     /* background: url('../assets/img/about/top.png') no-repeat scroll 150px 100% / cover transparent; */
   }
+
+  #top-right{
+    background: url('../assets/img/about/about-1.png')  no-repeat scroll 0px 100% / cover transparent;
+    min-height: 300px;
+  }
+
   #mid{
     min-height: 600px;
     text-align: left;
@@ -67,6 +69,12 @@ export default {
     /* background-repeat: no-repeat; */
     /* background-position: bottom 10px left -250px; */
   }
+
+  #mid-left{
+    background: url('../assets/img/about/about-2.png')  no-repeat scroll 0px 100% / cover transparent;
+    min-height: 300px;
+  }
+
   #bot{
     min-height: 600px;
     margin: 0 10rem;
