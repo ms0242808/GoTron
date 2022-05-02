@@ -5,11 +5,28 @@
         <!-- <img src="@/assets/pic/logow.webp" style="width:100%; height:100%"> -->
       </div>
     </b-container>
-    <b-container class="bv-example-row">
+    <b-container>
       <b-row class="justify-content-md-center">
         <b-col cols="12" md="4">
           <b-card class="o-hidden border-0 shadow-lg my-5">
-            <b-card-text class="p-0">
+            <b-card-text v-if="register">
+              <b-form @submit.prevent="signUp" v-if="show">
+                <b-form-group class="mt-4" id="input-group-1" label-for="input-1">
+                  <b-form-input id="input-1" v-model="form.username" type="text" placeholder="Username" required></b-form-input>
+                </b-form-group>
+                <b-form-group class="mt-4" id="input-group-2" label-for="input-2">
+                  <b-form-input id="input-2" v-model="form.password" type="password" placeholder="password" required></b-form-input>
+                </b-form-group>
+                <b-form-group class="mt-4" id="input-group-2" label-for="input-2">
+                  <b-form-input id="input-2" v-model="form.email" type="text" placeholder="email" required></b-form-input>
+                </b-form-group>
+                <!-- <b-button pill class="text-bold mt-4 w-100" type="submit" variant="outline-primary">{{btn.text}}<b-spinner small v-if="btnClicked['b']"></b-spinner></b-button> -->
+                <b-button pill class="mt-3 text-bold w-100" type="submit" variant="dark">Sign up</b-button>
+                <p class="text-danger text-center pt-3">{{msg.err}}</p>
+              </b-form>
+              <b-button pill class="mt-3 text-bold w-100" variant="outline-primary" @click="toggleRegister()">Login</b-button>
+            </b-card-text>
+            <b-card-text class="p-0" v-else>
               <div class="col-lg-11" style="margin: 30px auto;">
                 <div class="text-center mb-4">
                   <h3 class="font-weight-bold" dlang="login-title">Login</h3>
@@ -23,7 +40,8 @@
                   <b-form-group class="mt-4" id="input-group-2" label-for="input-2">
                     <b-form-input id="input-2" v-model="form.password" type="password" placeholder="password" required></b-form-input>
                   </b-form-group>
-                  <b-button pill class="mt-4 w-100" type="submit" variant="primary">{{btn.text}}<b-spinner small v-if="btnClicked['b']"></b-spinner></b-button>
+                  <b-button pill class="text-bold mt-4 w-100" type="submit" variant="outline-primary">{{btn.text}}<b-spinner small v-if="btnClicked['b']"></b-spinner></b-button>
+                  <b-button pill class="mt-3 text-bold w-100" variant="dark" @click="toggleRegister()">Sign up</b-button>
                   <p class="text-danger text-center pt-3">{{msg.err}}</p>
                 </b-form>
               </div>
@@ -36,7 +54,6 @@
 </template>
 
 <script>
-  // import {auth, signInWithEmailAndPassword, perf, trace} from '../fire';
   import Vue from 'vue';
   import { Auth } from 'aws-amplify';
 
@@ -44,9 +61,11 @@
     name: 'Login',
     data(){
       return{
+        register:false,
         form:{
           username:'',
-          password:''
+          password:'',
+          email:''
         },
         btn:{
           text:'Login',//this.$i18n.t('login.login'),
@@ -59,6 +78,26 @@
       }
     },
     methods: {
+      async toggleRegister(){
+        this.register = !this.register;
+      },
+      async signUp(event){
+        try{
+          var username = this.form.username,
+          password = this.form.password,
+          email = this.form.email;
+          const { user } = await Auth.signUp({
+            username,
+            password,
+            attributes:{
+              email
+            }
+          });
+          console.log(user);
+        } catch (error) {
+          console.log('error signing up:', error);
+        }
+      },
       async onSubmit(event) {
         event.preventDefault();
         this.btn.text = '';
@@ -79,3 +118,9 @@
     }
   }
 </script>
+
+<style scoped>
+.card{
+  height:auto !important;
+}
+</style>
