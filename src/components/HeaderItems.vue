@@ -45,7 +45,7 @@
 	// import {auth,signOut, db, collection, query, where, getDocs, perf, trace} from '../fire'
 	// import Avatar from 'vue-avatar'
 	// import { mapGetters } from 'vuex'
-	// import store from '../store/store'
+	import store from '../store/index'
 	import { Auth } from 'aws-amplify';
 
 	export default {
@@ -117,7 +117,8 @@
 			// logout(){signOut(auth).then(() => {this.$router.replace('login')})}
 			async signOut(){
 				try{
-					await Auth.signOut();
+					const user = await Auth.signOut();
+					store.commit('authStateChanged', user);
 					this.$router.replace('login')
 				}catch(error){
 					console.log('error signing out: ', error);

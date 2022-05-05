@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <b-navbar id="nav" toggleable="lg" type="dark" variant="dark" sticky>
+    <b-navbar v-if="showNav" id="nav" toggleable="lg" type="dark" variant="dark" sticky>
       <b-navbar variant="faded" type="light">
         <b-navbar-brand to="/">GoTron</b-navbar-brand>
       </b-navbar>
@@ -27,6 +27,19 @@
     </div>
   </div>
 </template>
+
+<script>
+
+export default {
+  name: 'App',
+  computed:{
+    'showNav':function(){
+      var nav = ['Home','Explore','About','Faq','Contact','Login'];
+      if(nav.includes(this.$route.name)){return true}else{return false}
+    }
+  }
+}
+</script>
 
 <style>
 #app {

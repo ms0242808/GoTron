@@ -56,6 +56,7 @@
 <script>
   import Vue from 'vue';
   import { Auth } from 'aws-amplify';
+  import store from '../store/index'
 
   export default {
     name: 'Login',
@@ -106,6 +107,8 @@
         try {
           const user = await Auth.signIn(this.form.username, this.form.password);
           this.btn.text = 'Login';//this.$i18n.t('login.login');
+          console.log(user);
+          store.commit('authStateChanged', user);
           Vue.set(this.btnClicked,'b',0);
           this.$router.replace({name: "Dashboard"});
         } catch (error) {
