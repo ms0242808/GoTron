@@ -4,7 +4,8 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBars,faMapMarkerAlt,faUserShield,faSignOutAlt,faStream,faMap,faTachometerAlt,faFileAlt,faTools,faCog,faCheckCircle,faRobot,faPowerOff,faLemon,faLink,faHdd,faServer,faGlobe,faEye,faChartPie,faListOl,faCalendar,faCaretDown,faExchangeAlt,faTrashAlt,faPlus,faUpload,faLongArrowAltRight,faTimes,faIdBadge,faUser,faUserPlus,faEnvelope,faLock,faEdit,faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faInstagram, faFacebookMessenger} from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { BootstrapVue } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -17,7 +18,7 @@ import awsExports from "./aws-exports";
 Amplify.configure(awsExports);
 
 Vue.use(BootstrapVue)
-library.add(faBars,faMapMarkerAlt,faUserShield,faSignOutAlt,faStream,faMap,faTachometerAlt,faFileAlt,faTools,faCog,faUserShield,faCheckCircle,faRobot,faPowerOff,faLemon,faLink,faHdd,faServer,faGlobe,faEye,faChartPie,faListOl,faCalendar,faCaretDown,faExchangeAlt,faTrashAlt,faPlus,faUpload,faLongArrowAltRight,faTimes,faIdBadge,faUser,faUserPlus,faEnvelope,faLock,faEdit,faPaperPlane)
+library.add(faEnvelope,faInstagram, faFacebookMessenger)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
 

@@ -5,7 +5,10 @@
         <h3><b>Contact us</b></h3>
       </b-col>
       <b-col cols="9" class="al-s">
-        email, socia medial
+        <!-- email, socia medial -->
+        <font-awesome-icon fixed-width class="fa-lg" icon="envelope"/>
+        <font-awesome-icon fixed-width class="fa-lg" icon="fa-brands fa-instagram" />
+        <font-awesome-icon fixed-width class="fa-lg" icon="fa-brands fa-facebook-messenger"/>
       </b-col>
     </b-row>
     <b-row id="form">
