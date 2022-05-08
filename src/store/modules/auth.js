@@ -37,6 +37,7 @@ const actions = {
 const mutations = {
   authStateChanged(state, user){
     state.isAuthed = Boolean(user);
+    console.log(state,Boolean(user));
     state.isInited = true;
     if(user !== null && user !== undefined){
       state.email = user.attributes.email;

@@ -11,7 +11,8 @@
           <b-nav-item to="/about">About</b-nav-item>
           <b-nav-item to="/faq">FAQ</b-nav-item>
           <b-nav-item to="/contact">Concat US</b-nav-item>
-          <b-nav-item to="/login"><b-button size="sm" variant="outline-light">Create Now</b-button></b-nav-item>
+          <b-nav-item to="/login" v-if="!loginState"><b-button size="sm" variant="outline-light">Create Now</b-button></b-nav-item>
+          <b-nav-item to="/dashboard/overview" v-else><b-button size="sm" variant="light">Dashboard</b-button></b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -29,6 +30,7 @@
 </template>
 
 <script>
+import store from './store/index'
 
 export default {
   name: 'App',
@@ -36,6 +38,9 @@ export default {
     'showNav':function(){
       var nav = ['Home','Explore','About','Faq','Contact','Login'];
       if(nav.includes(this.$route.name)){return true}else{return false}
+    },
+    'loginState':function(){
+      return store.getters.getAuthState
     }
   }
 }
