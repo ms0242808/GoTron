@@ -96,8 +96,16 @@
     methods: {
       async toggleRegister(){
         this.register = !this.register;
+        this.form = {
+          username:'',
+          password:'',
+          email:'',
+          code:''
+        };
+        this.msg.err = '';
       },
       async signUp(event){
+        this.msg.err = '';
         try{
           var username = this.form.username,
           password = this.form.password,
@@ -109,20 +117,20 @@
               email
             }
           });
-          console.log(user);
           this.show = false;
         } catch (error) {
-          console.log('error signing up:', error);
+          this.msg.err = error;
         }
       },
       async confirmSignUp(event){
+        this.msg.err = '';
         try {
           await Auth.confirmSignUp(this.form.username, this.form.code);
           const user = {'username':this.form.username,'attributes':{'email':this.form.email}}
           store.commit('authStateChanged', user);
           this.$router.replace({name: "Dashboard"});
         } catch (error) {
-          console.log('error confirming sign up', error);
+          this.msg.err = error;
         }
       },
       async onSubmit(event) {
