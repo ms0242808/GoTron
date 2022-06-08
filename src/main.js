@@ -13,6 +13,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/css/theme.css'
 import './registerServiceWorker'
 import i18n from './i18n'
+import Carousel3d from 'vue-carousel-3d';
 import Amplify from "aws-amplify";
 import awsExports from "./aws-exports";
 Amplify.configure(awsExports);
@@ -20,6 +21,7 @@ Amplify.configure(awsExports);
 Vue.use(BootstrapVue)
 library.add(faEnvelope,faInstagram, faFacebookMessenger)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.use(Carousel3d);
 Vue.config.productionTip = false
 
 new Vue({

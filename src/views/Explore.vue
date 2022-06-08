@@ -1,5 +1,16 @@
 <template>
   <div class="explore">
+    <carousel-3d class="slideshow">
+      <slide v-for="(n, i) in slides" :index="i" :key="i">
+        <img
+            class="d-block img-fluid w-100"
+            width="1024"
+            height="480"
+            src="https://picsum.photos/1024/480"
+            alt="image slot"
+          >
+      </slide>
+    </carousel-3d>
     <b-carousel
       id="carousel-1"
       v-model="slide"
@@ -10,6 +21,7 @@
       img-width="1024"
       img-height="480"
       style="text-shadow: 1px 1px 2px #333;"
+      hidden
     >
       <b-carousel-slide
         caption="First slide"
@@ -34,15 +46,16 @@
         </template>
       </b-carousel-slide>
     </b-carousel>
+    
+    <b-button-group class="mx-1">
+      <b-button>This week</b-button>
+      <b-button>This Month</b-button>
+      <b-button>Last Month</b-button>
+    </b-button-group>
 
     <b-row class="mt-2">
       <b-col lg="6" sm="12">
         <h3>Music</h3>
-        <b-button-group class="mx-1">
-          <b-button>This week</b-button>
-          <b-button>This Month</b-button>
-          <b-button>Last Month</b-button>
-        </b-button-group>
         <div class="mt-2">
           <b-card no-body class="overflow-hidden" style="max-width: 540px;">
             <b-row no-gutters>
@@ -90,7 +103,7 @@
               </b-col>
             </b-row>
           </b-card>
-          <b-button class="mt-2">More</b-button>
+          <b-button variant="outline-primary" class="mt-2" to="/">More</b-button>
         </div>
       </b-col>
       <b-col lg="6" sm="12">
@@ -111,19 +124,25 @@
             <b-col cols="6"><b-card></b-card></b-col>
           </b-row>
         </b-container>
-        <b-button class="mt-2">More</b-button>
+        <b-button variant="outline-primary" class="mt-2" to="/">More</b-button>
       </b-col>
     </b-row>
   </div>
 </template>
 
 <script>
+import {Carousel3d, Slide} from 'vue-carousel-3d';
 
 export default {
   name: 'Explore',
   data() {
     return {
+      slides: 7
     }
+  },
+  components:{
+    Carousel3d,
+    Slide
   },
   methods: {
    
@@ -132,6 +151,10 @@ export default {
 </script>
 
 <style>
+  .slideshow{
+    background-color: #2d2d2d;
+  }
+
   .card{
     height: 180px !important;
   }
