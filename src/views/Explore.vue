@@ -47,20 +47,20 @@
       </b-carousel-slide>
     </b-carousel>
     
-    <b-button-group class="mx-1">
-      <b-button>This week</b-button>
-      <b-button>This Month</b-button>
-      <b-button>Last Month</b-button>
+    <b-button-group class="mx-1 ">
+      <b-button variant="outline-secondary">This week</b-button>
+      <b-button variant="outline-secondary">This Month</b-button>
+      <b-button variant="outline-secondary">Last Month</b-button>
     </b-button-group>
 
-    <b-row class="mt-2">
+    <b-row class="mt-2 m-50">
       <b-col lg="6" sm="12">
-        <h3>Music</h3>
+        <h3><font-awesome-icon size="sm" icon="fa-solid fa-music" />Music</h3>
         <div class="mt-2">
-          <b-card no-body class="overflow-hidden" style="max-width: 540px;">
+          <b-card no-body class="overflow-hidden musicCard" style="max-width: 540px;">
             <b-row no-gutters>
               <b-col md="4">
-                <b-card-img src="https://picsum.photos/400/400/?image=20" alt="Image" class="rounded-0"></b-card-img>
+                <b-card-img src="https://picsum.photos/400/400/?image=20" alt="Image" class="musicImg"></b-card-img>
               </b-col>
               <b-col md="8">
                 <b-card-body title="Song name...">
@@ -73,10 +73,10 @@
           </b-card>
         </div>
         <div class="mt-2">
-          <b-card no-body class="overflow-hidden" style="max-width: 540px;">
+          <b-card no-body class="overflow-hidden musicCard" style="max-width: 540px;">
             <b-row no-gutters>
               <b-col md="4">
-                <b-card-img src="https://picsum.photos/400/400/?image=20" alt="Image" class="rounded-0"></b-card-img>
+                <b-card-img src="https://picsum.photos/400/400/?image=20" alt="Image" class="musicImg"></b-card-img>
               </b-col>
               <b-col md="8">
                 <b-card-body title="Song name...">
@@ -89,10 +89,10 @@
           </b-card>
         </div>
         <div class="mt-2">
-          <b-card no-body class="overflow-hidden" style="max-width: 540px;">
+          <b-card no-body class="overflow-hidden musicCard" style="max-width: 540px;">
             <b-row no-gutters>
               <b-col md="4">
-                <b-card-img src="https://picsum.photos/400/400/?image=20" alt="Image" class="rounded-0"></b-card-img>
+                <b-card-img src="https://picsum.photos/400/400/?image=20" alt="Image" class="musicImg"></b-card-img>
               </b-col>
               <b-col md="8">
                 <b-card-body title="Song name...">
@@ -107,21 +107,57 @@
         </div>
       </b-col>
       <b-col lg="6" sm="12">
-        <h3>Lyrics</h3>
+        <h3><font-awesome-icon size="sm" icon="fa-solid fa-file-signature" />Lyrics</h3>
         <b-container class="bv-example-row">
           <b-row class="mt-2">
-            <b-col cols="12" md="8"><b-card></b-card></b-col>
-            <b-col cols="6" md="4"><b-card></b-card></b-col>
+            <b-col cols="6">
+              <b-card class="lyricsCard">
+                <h5>Lyrics Title</h5>
+                <p>by AT</p>
+                <b-button variant="outline-primary"><font-awesome-icon icon="fa-solid fa-plus" /></b-button>
+              </b-card>
+            </b-col>
+            <b-col cols="6">
+              <b-card class="lyricsCard">
+                <h5>Lyrics Title</h5>
+                <p>by Author</p>
+                <b-button variant="outline-primary"><font-awesome-icon icon="fa-solid fa-plus" /></b-button>
+              </b-card>
+            </b-col>
           </b-row>
 
           <b-row class="mt-2">
-            <b-col cols="6" md="4"><b-card></b-card></b-col>
-            <b-col cols="6" md="8"><b-card></b-card></b-col>
+            <b-col cols="6">
+              <b-card class="lyricsCard">
+                <h5>Lyrics Title</h5>
+                <p>by Author</p>
+                <b-button variant="outline-primary"><font-awesome-icon icon="fa-solid fa-plus" /></b-button>
+              </b-card>
+            </b-col>
+            <b-col cols="6">
+              <b-card class="lyricsCard">
+                <h5>Lyrics Title</h5>
+                <p>by Author</p>
+                <b-button variant="outline-primary"><font-awesome-icon icon="fa-solid fa-plus" /></b-button>
+              </b-card>
+            </b-col>
           </b-row>
 
           <b-row class="mt-2">
-            <b-col cols="6"><b-card></b-card></b-col>
-            <b-col cols="6"><b-card></b-card></b-col>
+            <b-col cols="6">
+              <b-card class="lyricsCard">
+                <h5>Lyrics Title</h5>
+                <p>by Author</p>
+                <b-button variant="outline-primary"><font-awesome-icon icon="fa-solid fa-plus" /></b-button>
+              </b-card>
+            </b-col>
+            <b-col cols="6">
+              <b-card class="lyricsCard">
+                <h5>Lyrics Title</h5>
+                <p>by Author</p>
+                <b-button variant="outline-primary"><font-awesome-icon icon="fa-solid fa-plus" /></b-button>
+              </b-card>
+            </b-col>
           </b-row>
         </b-container>
         <b-button variant="outline-primary" class="mt-2" to="/">More</b-button>
@@ -151,11 +187,30 @@ export default {
 </script>
 
 <style>
+  .m-50{
+    margin: 0 50px;
+  }
+
   .slideshow{
     background-color: #2d2d2d;
   }
 
+  .musicCard{
+    border-radius: 100px 0 0 100px;
+  }
+
+  .musicImg{
+    border-radius: 100px;
+  }
+
   .card{
     height: 180px !important;
+  }
+
+  .lyricsCard{
+    background-color:antiquewhite;
+    border: unset;
+    margin: 0 10px;
+    box-shadow: #eaeaea 3px 3px;
   }
 </style>

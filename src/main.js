@@ -4,7 +4,7 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faEye, faEnvelope,faMusic, faFileSignature } from '@fortawesome/free-solid-svg-icons'
 import { faInstagram, faFacebookMessenger} from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { BootstrapVue } from 'bootstrap-vue'
@@ -19,7 +19,7 @@ import awsExports from "./aws-exports";
 Amplify.configure(awsExports);
 
 Vue.use(BootstrapVue)
-library.add(faEnvelope,faInstagram, faFacebookMessenger)
+library.add(faPlus, faEye, faEnvelope, faMusic, faFileSignature, faInstagram, faFacebookMessenger)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(Carousel3d);
 Vue.config.productionTip = false
